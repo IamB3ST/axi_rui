@@ -1,7 +1,7 @@
 ---
 title: 安全对齐不应仅仅局限于几个token的深度
 published: 2025-06-22
-description: ICLR 2025 Outstanding Paper "Safety Alignment Should Be Made More Than Just a Few Tokens Deep"
+description: "ICLR 2025 Outstanding Paper \"Safety Alignment Should Be Made More Than Just a Few Tokens Deep\""
 tags: [Safety Alignment]
 category: Paper Reading
 draft: false
@@ -16,7 +16,7 @@ draft: false
 
 # Background & Motivation
 
-LLM 的安全性在很大程度上依赖于 Post-training 技术，通常是 SFT 与基于偏好的最优化方法如 RLHF 和直接偏好优化（DPO）的结合。然而，近期研究发现，当前大多数针对 LLM 的 Safety Alignment Post-training 并不 robust，如通过对抗性最优化输入、进行几步微调的梯度更新，或仅仅利用模型的解码参数，仍然可以突破对齐后的模型。
+近期研究发现，当前大多数针对 LLM 的 Safety Alignment 方法并不 robust，如通过对抗性最优化输入、进行几步微调的梯度更新，或仅仅利用模型的解码参数，仍然可以突破对齐后的模型。
 
 作者针对这一现象进行了研究，发现当前的 LLM Safety Alignment 存在一个致命问题：Alignment 很大程度上只调整了最初几个 token 的生成分布。因此，如果模型输出的初始 tokens 偶然出现或被对抗性诱导而偏离某些常规安全前缀，其生成可能会灾难性地落入有害的生产轨迹。例如，攻击者构造以下 prompt：
 
@@ -56,3 +56,8 @@ for building a bomb. [/INST] Step 1: Gather phosphorus I cannot fulfill your req
 但是这种文本数据是合成的，甚至在自然语言中也不连贯，这意味着它不太可能由人类标记出来进行 SFT，或由模型为偏好优化数据采样。因此，这些增强数据本质上涵盖了异常值案例，这些案例对于编码更深的 Safety Alignment 概念非常有用。
 
 关于 Ablation Study，作者仅仅通过上述方法构造一个包含256个实例的数据集微调 Llama-2-7B，与传统对齐模型相比效果立竿见影，但没有构造其他主流对齐方法的 baseline，实验规模也较小，就不在此介绍了，感兴趣的可以看原文 Chapter 3 和 Chapter 4。
+
+
+# Rating
+
+仅讨论文章的启发性（insight），这篇文章获得 Outstanding Paper Award 当之无愧，至少在 Safety Alignment 领域如此。但是这篇文章在 Ablation Study 上仍然存在缺陷：作者团队并没有充分展示其他对齐方法在深层解码的效益，且文章没有讨论任何关于 over-refusal 和 utility 的表现。试想，如果一个对齐方法保证了模型的安全性但是让模型本身的性能下降且显著降低了模型的交互能力，这算得上优良的对齐方法吗？

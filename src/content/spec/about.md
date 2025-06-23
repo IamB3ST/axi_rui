@@ -1,6 +1,6 @@
 # Hi,
 
-I am a third-year undergraduate student at Rutgers University. I am fortunate to collaborate with [Prof.Ruixiang Tang](https://www.ruixiangtang.net) throughout my undergraduate studies.
+I am a **third-year undergraduate student at Rutgers University**. I am fortunate to collaborate with [Prof.Ruixiang Tang](https://www.ruixiangtang.net) throughout my undergraduate studies.
 
 
 # Research
