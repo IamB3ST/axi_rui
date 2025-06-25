@@ -5,6 +5,7 @@ description: "ICLR 2025 Outstanding Paper \"Safety Alignment Should Be Made More
 tags: [Safety Alignment]
 category: Paper Reading
 draft: false
+score: 3
 ---
 
 ::github{repo="Unispac/shallow-vs-deep-alignment"}
