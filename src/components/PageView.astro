@@ -17,61 +17,24 @@ const uniqueId = `waline-view-${Math.random().toString(36).substr(2, 9)}`;
 	--
 </span>
 
-<script define:vars={{ uniqueId, currentPath }}>
-	const initThisPageview = async () => {
-		try {
-			const element = document.getElementById(uniqueId);
-			if (!element) {
-				console.warn(`找不到元素: ${uniqueId}`);
-				return;
-			}
+<script define:vars={{ uniqueId }}>
+	const initPageview = async () => {
+		const element = document.getElementById(uniqueId);
+		if (!element) return;
 
+		try {
 			const { pageviewCount } = await import('@waline/client');
-			
-			if (pageviewCount) {
-				pageviewCount({
-					serverURL: 'https://walinerui.axi404.top',
-					selector: `#${uniqueId}`,
-				});
-				console.log(`浏览量统计已初始化: ${currentPath}`);
-			} else {
-				console.warn('pageviewCount 方法不可用');
-			}
-		} catch (error) {
-			console.warn('无法加载 pageview 模块:', error);
-			
-			try {
-				const script = document.createElement('script');
-				script.type = 'module';
-				script.innerHTML = `
-					import('https://unpkg.com/@waline/client@v3/dist/pageview.js').then(({ pageviewCount }) => {
-						pageviewCount({
-							serverURL: 'https://walinerui.axi404.top',
-							selector: '#${uniqueId}',
-						});
-						console.log('CDN 浏览量统计已初始化: ${currentPath}');
-					}).catch(err => {
-						console.error('CDN pageview 加载失败:', err);
-					});
-				`;
-				document.head.appendChild(script);
-			} catch (cdnError) {
-				console.error('CDN script 创建失败:', cdnError);
-			}
+			pageviewCount?.({
+				serverURL: 'https://walinerui.axi404.top',
+				selector: `#${uniqueId}`,
+			});
+		} catch {
+			const script = document.createElement('script');
+			script.type = 'module';
+			script.innerHTML = `import('https://unpkg.com/@waline/client@v3/dist/pageview.js').then(({pageviewCount})=>pageviewCount({serverURL:'https://walinerui.axi404.top',selector:'#${uniqueId}'}))`;
+			document.head.appendChild(script);
 		}
 	};
 
-	setTimeout(() => {
-		const element = document.getElementById(uniqueId);
-		if (element) {
-			initThisPageview();
-		} else {
-			setTimeout(() => {
-				const retryElement = document.getElementById(uniqueId);
-				if (retryElement) {
-					initThisPageview();
-				}
-			}, 500);
-		}
-	}, 100);
-</script> 
+	setTimeout(() => document.getElementById(uniqueId) && initPageview(), 200);
+</script>
