@@ -16,7 +16,7 @@ interface Props {
 	hideUpdateDate?: boolean;
 	score?: number;
 	showPageView?: boolean;
-	postUrl?: string; // 新增：文章URL路径
+	postUrl?: string;
 }
 const {
 	published,
@@ -27,7 +27,7 @@ const {
 	hideUpdateDate = false,
 	score,
 	showPageView = true,
-	postUrl, // 文章路径，用于浏览量统计
+	postUrl, 
 } = Astro.props;
 const className = Astro.props.class;
 ---
@@ -50,18 +50,6 @@ const className = Astro.props.class;
                 <Icon name="material-symbols:edit-calendar-outline-rounded" class="text-xl"></Icon>
             </div>
             <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(updated)}</span>
-        </div>
-    )}
-
-    <!-- page views -->
-    {showPageView && (
-        <div class="flex items-center">
-            <div class="meta-icon">
-                <Icon name="material-symbols:visibility-outline-rounded" class="text-xl"></Icon>
-            </div>
-            <span class="text-50 text-sm font-medium">
-                <PageView class="text-50 text-sm font-medium" path={postUrl} /> 次浏览
-            </span>
         </div>
     )}
 
@@ -98,6 +86,18 @@ const className = Astro.props.class;
             {!(tags && tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
         </div>
     </div>
+
+    <!-- page views -->
+    {showPageView && (
+        <div class="flex items-center">
+            <div class="meta-icon">
+                <Icon name="material-symbols:visibility-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium">
+                <PageView class="text-50 text-sm font-medium" path={postUrl} /> Views
+            </span>
+        </div>
+    )}
     {score && score > 0 && (
         <div class="flex items-center">
             <div class="flex flex-row items-center">
