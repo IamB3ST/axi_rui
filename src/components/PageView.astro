@@ -16,25 +16,3 @@ const uniqueId = `waline-view-${Math.random().toString(36).substr(2, 9)}`;
 >
 	--
 </span>
-
-<script define:vars={{ uniqueId }}>
-	const initPageview = async () => {
-		const element = document.getElementById(uniqueId);
-		if (!element) return;
-
-		try {
-			const { pageviewCount } = await import('@waline/client');
-			pageviewCount?.({
-				serverURL: 'https://walinerui.axi404.top',
-				selector: `#${uniqueId}`,
-			});
-		} catch {
-			const script = document.createElement('script');
-			script.type = 'module';
-			script.innerHTML = `import('https://unpkg.com/@waline/client@v3/dist/pageview.js').then(({pageviewCount})=>pageviewCount({serverURL:'https://walinerui.axi404.top',selector:'#${uniqueId}'}))`;
-			document.head.appendChild(script);
-		}
-	};
-
-	setTimeout(() => document.getElementById(uniqueId) && initPageview(), 200);
-</script>
