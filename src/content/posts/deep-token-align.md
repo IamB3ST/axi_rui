@@ -2,7 +2,7 @@
 title: 安全对齐不应仅仅局限于几个token的深度
 published: 2025-06-22
 description: "ICLR 2025 Outstanding Paper \"Safety Alignment Should Be Made More Than Just a Few Tokens Deep\""
-tags: [Safety Alignment]
+tags: [Safety Alignment][Methodology]
 category: Paper Reading
 draft: false
 ---
