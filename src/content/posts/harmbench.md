@@ -2,7 +2,7 @@
 title: 通用红队基准 HarmBench
 published: 2025-06-28
 description: "ICML 2025 Paper \"HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal\""
-tags: [Safety Alignment]
+tags: [Jailbreak][Benchmark]
 category: Paper Reading
 draft: false
 ---
