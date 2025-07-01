@@ -2,7 +2,7 @@
 title: 过度防御基准 XSTest
 published: 2025-06-30
 description: "NAACL 2024 Paper \"XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models\""
-tags: ["Safety Alignment", "Benchmark"]
+tags: ["Over-refusal", "Benchmark"]
 category: Paper Reading
 draft: false
 ---
