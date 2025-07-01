@@ -2,7 +2,7 @@
 title: 通用红队基准 StrongREJECT
 published: 2025-06-30
 description: "NIPS 2025 Paper \"A StrongREJECT for Empty Jailbreaks\""
-tags: [Jailbreak][Benchmark]
+tags: ["Jailbreak", "Benchmark"]
 category: Paper Reading
 draft: false
 ---
