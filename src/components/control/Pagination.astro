@@ -46,7 +46,7 @@ if (r === page.lastPage - 2) pages.push(page.lastPage - 1);
 if (r < page.lastPage) pages.push(page.lastPage);
 
 const getPageUrl = (p: number) => {
-	if (p === 1) return "/";
+	if (p === 1) return "blogs/";
 	return `blogs/${p}/`;
 };
 ---
