@@ -5,7 +5,10 @@ description: "NIPS 2025 Paper \"A StrongREJECT for Empty Jailbreaks\""
 tags: ["Jailbreak", "Benchmark"]
 category: Paper Reading
 draft: false
+score: 4
 ---
+
+::github{repo="alexandrasouly/strongreject"}
 
 :::note[TL;DR]
 一项聚焦 LLM 越狱的 Benchmark，明确指出了“空越狱”现象：许多被判定为成功的 jailbreak 实际只让模型不再拒答，但生成内容空洞、无效，无法真正提供危害性信息。为此，作者提出了一个结合“意愿”与“能力”评分的新评估体系，显著提升了自动化打分结果与人类判断的一致性，并通过实验证明现有主流二分类方法系统性高估了越狱效果。

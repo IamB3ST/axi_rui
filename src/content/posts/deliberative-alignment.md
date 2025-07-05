@@ -5,6 +5,7 @@ description: "OpenAI Techniqual Report \"Deliberative Alignment: reasoning enabl
 tags: ["Safety Alignment", "Methodology"]
 category: Paper Reading
 draft: false
+score: 4
 ---
 
 :::note[TL;DR]

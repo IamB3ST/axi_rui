@@ -5,7 +5,10 @@ description: "ICML 2025 Paper \"HarmBench: A Standardized Evaluation Framework f
 tags: ["Jailbreak", "Benchmark"]
 category: Paper Reading
 draft: false
+score: 4
 ---
+
+::github{repo="centerforaisafety/HarmBench"}
 
 :::note[TL;DR]
 本文提出 HarmBench，一个专为自动化红队攻击与鲁棒拒绝机制评估设计的标准化基准，系统性定义了红队评估的三个关键维度：广度、可比性与鲁棒性。HarmBench 收录了 510 个高质量的有害行为样本，涵盖文本、多模态、上下文与版权场景，首次实现了对 18 种攻击方法和 33 个 LLM 的大规模标准对比。该基准揭示了当前攻击与防御方法的局限，并为未来攻防协同开发提供了统一实验平台。

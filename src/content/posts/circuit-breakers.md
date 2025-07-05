@@ -5,6 +5,7 @@ description: "NIPS 2024 Paper \"Improving Alignment and Robustness with Circuit 
 tags: ["Safety Alignment", "Methodology"]
 category: Paper Reading
 draft: false
+score: 3
 ---
 
 ::github{repo="GraySwanAI/circuit-breakers"}

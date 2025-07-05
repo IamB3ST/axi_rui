@@ -5,6 +5,7 @@ description: "ACL 2024 Paper \"SafeDecoding: Defending against Jailbreak Attacks
 tags: ["Safety Alignment", "Methodology"]
 category: Paper Reading
 draft: false
+score: 3
 ---
 
 ::github{repo="uw-nsl/SafeDecoding"}

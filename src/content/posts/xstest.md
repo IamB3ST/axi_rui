@@ -5,7 +5,10 @@ description: "NAACL 2024 Paper \"XSTest: A Test Suite for Identifying Exaggerate
 tags: ["Over-refusal", "Benchmark"]
 category: Paper Reading
 draft: false
+score: 4
 ---
+
+::github{repo="paul-rottger/xstest"}
 
 :::note[TL;DR]
 提出了 XSTest，一个用于评估大语言模型“过度防御”（exaggerated safety）行为的小型基准，共包含 250 条安全提示和 200 条构造性不安全对比提示。通过人工标注和两种自动评估方法，作者发现夸大安全主要源于模型对敏感词的过度拟合，system prompt 虽有调控作用但缺乏一致性。

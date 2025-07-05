@@ -5,7 +5,10 @@ description: "ICLR 2025 Paper \"SORRY-Bench: Systematically Evaluating Large Lan
 tags: ["Safety Alignment", "Benchmark"]
 category: Paper Reading
 draft: false
+socre: 3
 ---
+
+::github{repo="SORRY-Bench/sorry-bench"}
 
 :::note[TL;DR]
 SORRY-Bench 是一个系统化且更加平衡的 LLM 安全拒绝能力的基准，覆盖 45 个细粒度高风险话题与 20 种语言变体，组成一个结构均衡、语言多样的 9K 规模不安全请求数据集。此外，作者还微调了一个小规模 LLM（Mistral-7B）作为安全评估器，其准确性与 GPT-4o 相当但计算成本更低。

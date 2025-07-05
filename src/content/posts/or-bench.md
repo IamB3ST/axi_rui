@@ -5,7 +5,10 @@ description: "ICML 2025 Paper \"OR-Bench: An Over-Refusal Benchmark for Large La
 tags: ["Over-refusal", "Benchmark"]
 category: Paper Reading
 draft: false
+score: 3
 ---
+
+::github{repo="justincui03/or-bench"}
 
 :::note[TL;DR]
 提出了一套自动化数据生成框架：从有害提示出发，通过少样本重写与多模型审查，批量生成形式安全但容易被误拒的“边界提示”。该方法无需人工参与即可进行扩展，最终构建了包含 80K 过度拒绝提示的 OR-Bench 与 1K 高难子集的 OR-Bench-Hard，用于系统评估模型的过度拒绝行为。
