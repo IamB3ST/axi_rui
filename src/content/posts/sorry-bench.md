@@ -5,7 +5,7 @@ description: "ICLR 2025 Paper \"SORRY-Bench: Systematically Evaluating Large Lan
 tags: ["Safety Alignment", "Benchmark"]
 category: Paper Reading
 draft: false
-socre: 3
+score: 3
 ---
 
 ::github{repo="SORRY-Bench/sorry-bench"}
