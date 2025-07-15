@@ -2,7 +2,7 @@
 title: SafeChian
 published: 2025-07-14
 description: "ACL 2025 Findings Paper \"SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities\""
-tags: ["Safety Alignment", "Methodology"]
+tags: ["Alignment", "Reasoning"]
 category: Paper Reading
 draft: false
 score: 5
@@ -36,9 +36,9 @@ score: 5
 
 安全评估器的实验结果表示 Llama-Guard 是最佳评估工具。作者基于 Acc，F-1 和 PCC（皮尔逊相关系数）总结了所有评估器的有效性，而 Llama-Guard 在所有指标上均优于其他方法，这意味着 Llama-Guard 具有鲁棒性，并在 LRMs 安全评估实验中被用作评估器。
 
-对 6 种 SoTA LRMs 评估的结果显示，没有模型在 StrongReject 和 WildJailbreak 上表现出强大的安全性。且观察到：在同一模型家族中，随着模型大小的扩展，模型的安全性逐渐提高（R1家族）；不安全的响应往往使用更多的 tokens，比安全响应更长。同时通过进一步比较 R1-70B 与其预训练模型 Llama-3.3-70B-Instruct 以及响应的基础模型 Llama-3.1-70B 的安全性，作者发现 R1-70B 的安全性可能主要来源于其预训练模型 Llama-3.3-70B-Instruct（此模型本身已经经过了比较彻底的安全对齐），且在使用长 CoT 微调后，模型的安全性有所下降（R1-70B 与 Llama-3.3-70B-Instruct 相比）。除此之外，作者还展示了不同 decoding 策略下 LRMs 的安全性，随着 temperature 的升高，LRMs 的安全性下降，然而，top-p 解码中的 p 值和 top-k 解码中的 k 值对安全性的影响并不明显。
+对 6 种 SoTA LRMs 评估的结果显示，没有模型在 StrongReject 和 WildJailbreak 上表现出强大的安全性。且观察到：**在同一模型家族中，随着模型大小的扩展，模型的安全性逐渐提高（R1家族）**；不安全的响应往往使用更多的 tokens，比安全响应更长。同时通过进一步比较 R1-70B 与其预训练模型 Llama-3.3-70B-Instruct 以及响应的基础模型 Llama-3.1-70B 的安全性，作者发现 R1-70B 的安全性可能主要来源于其预训练模型 Llama-3.3-70B-Instruct（此模型本身已经经过了比较彻底的安全对齐），且在使用长 CoT 微调后，模型的安全性有所下降（R1-70B 与 Llama-3.3-70B-Instruct 相比）。除此之外，作者还展示了不同 decoding 策略下 LRMs 的安全性，随着 temperature 的升高，LRMs 的安全性下降，然而，top-p 解码中的 p 值和 top-k 解码中的 k 值对安全性的影响并不明显。
 
-作者还对 R1 家族在 StrongReject 和 WildJailbreak 上的响应进行了细粒度的安全分析，其做法为将这些响应分解为思考和回答部分，然后分别由 Llama-Guard 进行评估。根据结果作者观察到：安全的思考过程并不总能得到安全的回答（思考和回答均为安全的响应仅占示例的 41.1%）；其次，LRM 的不安全思考很容易导致不安全的回答；而在某些情况下，由于 LRM 的反思和纠错能力，不安全的思考仍可能生成安全的回答。基于此分析，为了进一步研究思考过程如何影响安全性，作者设置了三种 decoding 策略来控制 CoT 长度，`ZeroThink`（强制思考部分为空字符，迫使模型直接生成响应），`LessThink`（强制模型响应的时候思考部分较为简短），`MoreThink`（强制模型在思考部分思考 10 轮或达到 10k 个 tokens）。结果显示，ZeroThink 实现了最佳的安全性，而 MoreThink 也能缓解不安全行为。对此，作者推测 MoreThink 探索推理路径时，长上下文帮助模型反思推理轨迹，尤其是那些可能导致不安全响应的部分。
+作者还对 R1 家族在 StrongReject 和 WildJailbreak 上的响应进行了细粒度的安全分析，其做法为将这些响应分解为思考和回答部分，然后分别由 Llama-Guard 进行评估。根据结果作者观察到：**安全的思考过程并不总能得到安全的回答（思考和回答均为安全的响应仅占示例的 41.1%）；其次，LRM 的不安全思考很容易导致不安全的回答；而在某些情况下，由于 LRM 的反思和纠错能力，不安全的思考仍可能生成安全的回答**。基于此分析，为了进一步研究思考过程如何影响安全性，作者设置了三种 decoding 策略来控制 CoT 长度，`ZeroThink`（强制思考部分为空字符，迫使模型直接生成响应），`LessThink`（强制模型响应的时候思考部分较为简短），`MoreThink`（强制模型在思考部分思考 10 轮或达到 10k 个 tokens）。结果显示，ZeroThink 实现了最佳的安全性，而 MoreThink 也能缓解不安全行为。对此，作者推测 MoreThink 探索推理路径时，长上下文帮助模型反思推理轨迹，尤其是那些可能导致不安全响应的部分。
 
 为了验证 SafeChain 的有效性，作者构建了 WJ-40K，其指令与 SafeChain 相同，但响应由 GPT-3.5 生成，没有思考部分只有回答部分。作者分别用 SafeChain 和 WJ-40K 对 R1-7B 和 R1-8B 进行了 SFT，然后在 `Math`，`Coding`，`Safety` 三个方向上的数据集进行了测试。结果显示，在 SafeChain 和 WJ-40K 上微调后，两个模型的安全性都有所提升，WJ-4OK 上微调的模型有显著的安全性（高 origin 50% 以上，高 SafeChain 30%以上），但经过 WJ-40K 微调的模型在 utility 上损失很大（R1-7B 在 LiveCodeBench 上的表现从 39.3% 下降到 14.5%）。相比之下，SafeChain 几乎成功保留了模型的 utility，甚至在部分任务上有所提升.
 

@@ -2,7 +2,7 @@
 title: 通过断路器提高对齐性和鲁棒性
 published: 2025-06-25
 description: "NIPS 2024 Paper \"Improving Alignment and Robustness with Circuit Breakers\""
-tags: ["Safety Alignment", "Methodology"]
+tags: ["Alignment", "Methodology"]
 category: Paper Reading
 draft: false
 score: 3

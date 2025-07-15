@@ -2,7 +2,7 @@
 title: 通用防御基准 SORRY-Bench
 published: 2025-07-02
 description: "ICLR 2025 Paper \"SORRY-Bench: Systematically Evaluating Large Language Model Safety Refusal\""
-tags: ["Safety Alignment", "Benchmark"]
+tags: ["Alignment", "Benchmark"]
 category: Paper Reading
 draft: false
 score: 3
