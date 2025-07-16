@@ -2,8 +2,8 @@
 title: 踏雪无痕，行路有声（一）
 published: 2025-06-27
 description: "My life journey."
-tags: [My Story]
-category: My Story
+tags: [Journey]
+category: My Journey
 draft: false
 ---
 
