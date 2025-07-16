@@ -1,7 +1,7 @@
 ---
 title: 科研中的“冲突”观点与结论
 published: 2025-07-16
-description: "Talking about some “conflict” views and conclusions in Alignment Science."
+description: "Talking about some conflict views and conclusions in Alignment Science."
 tags: [Alignment]
 category: Research Summary
 draft: false
