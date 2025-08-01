@@ -2,7 +2,7 @@
 title: 通过安全感知解码防御越狱攻击
 published: 2025-06-23
 description: "ACL 2024 Paper \"SafeDecoding: Defending against Jailbreak Attacks via Safety-Aware Decoding\""
-tags: ["Alignment", "Methodology"]
+tags: ["Alignment"]
 category: Paper Reading
 draft: false
 score: 3
