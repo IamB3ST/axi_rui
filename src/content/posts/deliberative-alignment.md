@@ -2,7 +2,7 @@
 title: 审计对齐
 published: 2025-06-25
 description: "OpenAI Techniqual Report \"Deliberative Alignment: reasoning enables safer language modles\""
-tags: ["Alignment", "Training"]
+tags: ["Alignment", "Post-training"]
 category: Paper Reading
 draft: false
 score: 4
