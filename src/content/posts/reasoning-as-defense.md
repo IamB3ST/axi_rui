@@ -4,7 +4,7 @@ published: 2025-08-01
 description: "ICML 2025 PUT Workshop \"Reasoning as an Adaptive Defense for Safety\""
 tags: ["Alignment", "Post-training", "Reasoning"]
 category: Paper Reading
-draft: true
+draft: false
 score: 4
 ---
 
